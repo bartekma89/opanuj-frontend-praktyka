@@ -1,9 +1,9 @@
 interface SearchTitleProps {
-  title: string;
+  title?: string;
 }
 
-function SearchTitle({ title }: SearchTitleProps) {
-  return <h1 className="text-2xl">{title}</h1>;
+function SearchTitle({ title = 'Rick and Morty' }: SearchTitleProps) {
+  return <h1 className="text-2xl">Wyszukiwarka postaci {title}</h1>;
 }
 
 export default SearchTitle;
