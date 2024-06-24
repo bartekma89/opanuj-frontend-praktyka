@@ -1,3 +1,7 @@
+import Input from './Input';
+import Select from './Select';
+import { SelectOptions } from '../lib/selectOptions';
+
 type SearchFormProps = {
   name: string;
   setName: (name: string) => void;
@@ -6,6 +10,20 @@ type SearchFormProps = {
   sortOption: string;
   setSortOption: (sortOption: string) => void;
 };
+
+const genderOptions: SelectOptions = [
+  { label: 'Any Gender', value: '' },
+  { label: 'Female', value: 'female' },
+  { label: 'Male', value: 'male' },
+  { label: 'Genderless', value: 'genderless' },
+  { label: 'Unknown', value: 'unknown' },
+];
+
+const sortOptions: SelectOptions = [
+  { label: 'Initial', value: '' },
+  { label: 'Name', value: 'name' },
+  { label: 'Created Date', value: 'created' },
+];
 
 function SearchForm({
   name,
@@ -19,39 +37,31 @@ function SearchForm({
     <form className="space-x-4 flex items-end justify-center">
       <label className="flex flex-col">
         Name
-        <input
+        <Input
           className="border h-7 mt-1 indent-2"
           type="text"
           placeholder="Rick Sanchez..."
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={setName}
         />
       </label>
       <label className="flex flex-col">
         Gender
-        <select
+        <Select
           value={gender}
-          onChange={(e) => setGender(e.target.value)}
+          onChange={setGender}
           className="border h-7 mt-1"
-        >
-          <option value="">Any Gender</option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
-          <option value="genderless">Genderless</option>
-          <option value="unknown">Unknown</option>
-        </select>
+          options={genderOptions}
+        />
       </label>
       <label className="flex flex-col">
         Sort by
-        <select
+        <Select
           value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
+          onChange={setSortOption}
           className="border h-7 mt-1"
-        >
-          <option value="">Initial</option>
-          <option value="name">Name</option>
-          <option value="created">Created Date</option>
-        </select>
+          options={sortOptions}
+        />
       </label>
     </form>
   );
