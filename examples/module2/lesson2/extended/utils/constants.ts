@@ -5,6 +5,7 @@ export const URLs = {
   COMMUNITY_PORTAL_PAGE:
     'https://en.wikipedia.org/wiki/Wikipedia:Community_portal',
   HELP_DESK_PAGE: 'https://en.wikipedia.org/wiki/Wikipedia:Help_desk',
+  PLAYWRIGHT_RESULT_PAGE: 'https://en.wikipedia.org/wiki/Playwright',
 };
 
 export const SEARCH_PHRASE = 'watchlist';
