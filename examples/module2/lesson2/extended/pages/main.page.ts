@@ -7,6 +7,7 @@ export class MainPage {
   readonly navigation: Locator;
   private readonly featuredArticleExcerpt: Locator;
   private readonly searchInput: Locator;
+  private readonly mainMenu: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,6 +20,8 @@ export class MainPage {
     this.searchInput = page
       .getByRole('search')
       .getByRole('searchbox', { name: /Search Wikipedia/i });
+
+    this.mainMenu = page.locator('#vector-main-menu-pinned-container');
   }
 
   navigate() {
@@ -27,6 +30,17 @@ export class MainPage {
 
   goToLoginPage() {
     return this.navigation.getByRole('link', { name: 'Log in' }).click();
+  }
+
+  async goToCommunityPage() {
+    const linkToCommunityPage = this.mainMenu.getByRole('link', {
+      name: 'Community portal',
+    });
+
+    const linkHref = (await linkToCommunityPage.getAttribute('href'))!;
+    await linkToCommunityPage.click();
+    console.log(linkHref);
+    return this.page.waitForURL(`**${linkHref}`);
   }
 
   async goToFeaturedArticle() {
