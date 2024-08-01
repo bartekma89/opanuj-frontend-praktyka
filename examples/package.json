@@ -8,7 +8,8 @@
     "test": "vitest",
     "test:e2e": "npx playwright install && npx playwright test",
     "test:e2e:ui": "npx playwright install && npx playwright test --ui",
-    "lint:e2e": "npx eslint **/{tests,pages,mocks}/**"
+    "lint:e2e": "npx eslint **/{tests,pages,mocks}/**",
+    "oa:generate": "openapi-generator-cli generate"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@nitedani/vite-plugin-angular": "^17.0.11",
+    "@openapitools/openapi-generator-cli": "^2.13.4",
     "@playwright/test": "1.41.2",
     "@sveltejs/vite-plugin-svelte": "3.0.2",
     "@testing-library/jest-dom": "6.4.2",
