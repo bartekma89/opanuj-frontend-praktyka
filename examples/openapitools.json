@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.7.0",
+    "generators": {
+      "v1.0": {
+        "generatorName": "typescript-fetch",
+        "inputSpec": "./module2/lesson3/_practice/rick-and-morty-open-api/lib/spec.json",
+        "output": "./module2/lesson3/_practice/rick-and-morty-open-api/lib/api/api-client-generated"
+      }
+    }
+  }
+}
